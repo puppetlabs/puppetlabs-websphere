@@ -7,7 +7,7 @@ Puppet::Type.type(:websphere_host_alias).provide(:wsadmin, :parent => Puppet::Pr
     ## (J|P)ython is whitespace sensitive, and this bit doesn't do well when
     ## being passed as a normal command-line argument. 
     cmd = <<-END
-host_aliases =  AdminConfig.list('HostAlias', AdminConfig.getid( '/Cell:CELL_01/VirtualHost:test_vhost/')).split(lineSeparator)
+host_aliases =  AdminConfig.list('HostAlias', AdminConfig.getid( '/Cell:#{resource[:cell]}/VirtualHost:#{resource[:virtual_host]}/')).split(lineSeparator)
 for alias in host_aliases:
   hostname = AdminConfig.showAttribute(alias, 'hostname')
   port = AdminConfig.showAttribute(alias, 'port')
@@ -40,7 +40,7 @@ END
   
   def destroy
     cmd = <<-END
-host_aliases =  AdminConfig.list('HostAlias', AdminConfig.getid( '/Cell:CELL_01/VirtualHost:test_vhost/')).split(lineSeparator)
+host_aliases =  AdminConfig.list('HostAlias', AdminConfig.getid( '/Cell:#{resource[:cell]}/VirtualHost:#{resource[:virtual_host]}/')).split(lineSeparator)
 for alias in host_aliases:
   hostname = AdminConfig.showAttribute(alias, 'hostname')
   port = AdminConfig.showAttribute(alias, 'port')
