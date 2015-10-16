@@ -48,7 +48,7 @@ define websphere::profile::dmgr (
   }
 
   if ! $options {
-    $_options = "-create -profileName ${profile_name} -profilePath ${_profile_base}/${profile_name} -templatePath ${_template_path} -nodeName ${node_name} -hostName ${::fqdn} -cellName ${cell}"
+    $_options = "-create -profileName ${profile_name} -profilePath ${_profile_base}/${profile_name} -templatePath ${_template_path} -nodeName ${node_name} -hostName ${dmgr_host} -cellName ${cell}"
   } else {
     $_options = $options
   }
