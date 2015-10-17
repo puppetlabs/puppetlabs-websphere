@@ -55,9 +55,10 @@ Puppet::Type.type(:websphere_cluster_member).provide(:wsadmin, :parent => Puppet
   def jvm_property(name,value)
     cmd = "\"AdminTask.setJVMProperties('[-nodeName " + resource[:node]
     cmd += ' -serverName ' + resource[:name] + ' -'
-    cmd += name + ' '
+    cmd += name + ' '  
     cmd += value
     cmd += "]')\""
+   
     wsadmin(:command => cmd, :user => resource[:user])
   end
 
@@ -163,7 +164,7 @@ Puppet::Type.type(:websphere_cluster_member).provide(:wsadmin, :parent => Puppet
   end
 
   def jvm_debug_args=(value)
-    jvm_property('debugArgs', "\"#{resource[:jvm_debug_args]}\"")
+    jvm_property('debugArgs', '\"' + resource[:jvm_debug_args] +'\"')
   end
 
   def jvm_run_hprof
@@ -180,7 +181,7 @@ Puppet::Type.type(:websphere_cluster_member).provide(:wsadmin, :parent => Puppet
 
   def jvm_hprof_arguments=(value)
     # Might need to quote the value
-    jvm_property('hprofArguments', "\"#{resource[:jvm_hprof_arguments]}\"")
+    jvm_property('hprofArguments', '\"' + resource[:jvm_generic_hprof_arguments] +'\"')
   end
 
   def jvm_executable_jar_filename
@@ -203,7 +204,7 @@ Puppet::Type.type(:websphere_cluster_member).provide(:wsadmin, :parent => Puppet
 
   def jvm_generic_jvm_arguments=(value)
     # Might need to quote the value
-    jvm_property('genericJvmArguments', resource[:jvm_generic_jvm_arguments])
+    jvm_property('genericJvmArguments', '\"' + resource[:jvm_generic_jvm_arguments] +'\"')
   end
 
   def jvm_disable_jit

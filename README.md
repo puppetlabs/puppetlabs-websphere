@@ -174,13 +174,16 @@ directory.
 | [websphere_cluster](docs/types/websphere_cluster.md) | Manages the creation of WebSphere clusters on a DMGR.
 | [websphere_cluster_member](docs/types/websphere_cluster_member.md) | Manages cluster members, including various settings.
 | [websphere_cluster_member_service](docs/types/websphere_cluster_member_service.md) | Manages a cluster member service.
+| [websphere_custom_service](docs/types/websphere_custom_service.md) | Manages a custom service.
 | [websphere_federate](docs/types/websphere_federate.md) | Manages the federation of an application server with a cell.
+| [websphere_host_alias](docs/types/websphere_host_alias.md) | Manages Websphere host aliases.
 | [websphere_jdbc_datasource](docs/types/websphere_jdbc_datasource.md) | Manages datasources.
 | [websphere_jdbc_provider](docs/types/websphere_jdbc_provider.md) | Manages JDBC providers.
 | [websphere_jvm_log](docs/types/websphere_jvm_log.md) | Manages the JVM logging properties for nodes or servers.
 | [websphere_node](docs/types/websphere_node.md) | Manages the creation of unmanaged nodes in a WebSphere cell.
 | [websphere_sdk](docs/types/websphere_sdk.md) | Manages the SDK version for a WebSphere profile or server.
 | [websphere_variable](docs/types/websphere_variable.md) | Manages WebSphere environment variables.
+| [websphere_vhost](docs/types/websphere_vhost.md) | Manages WebSphere virtual hosts.
 | [websphere_web_server](docs/types/websphere_web_server.md) | Manages the creation and configuration of WebSphere web servers.
 
 ## Usage
