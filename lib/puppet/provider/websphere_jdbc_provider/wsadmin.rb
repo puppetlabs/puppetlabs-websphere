@@ -79,7 +79,7 @@ AdminTask.deleteJDBCProvider(id)
 AdminConfig.save()
 EOT
 
-    self.debug "Deleting JDBC Datasource with:\n#{cmd}"
+    self.debug "Deleting JDBC Provider with:\n#{cmd}"
     result = wsadmin(:file => cmd, :user => resource[:user])
     self.debug "Result:\n#{result}"
   end
