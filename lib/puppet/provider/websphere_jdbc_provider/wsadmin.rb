@@ -73,8 +73,15 @@ EOT
   end
 
   def destroy
-    # AdminTask.deleteJDBCProvider('(cells/CELL_01|resources.xml#JDBCProvider_1422560538842)')
-    self.debug "Removal of JDBC Providers is not yet implemented"
+    cmd = <<-EOT
+id = AdminConfig.getid( '/#{scope('get')}/JDBCProvider:#{resource[:name]}/' )
+AdminTask.deleteJDBCProvider(id)
+AdminConfig.save()
+EOT
+
+    self.debug "Deleting JDBC Datasource with:\n#{cmd}"
+    result = wsadmin(:file => cmd, :user => resource[:user])
+    self.debug "Result:\n#{result}"
   end
 
   def flush
